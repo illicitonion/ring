@@ -771,7 +771,8 @@ fn perlasm(
     for (src, dst) in src_dst {
         eprintln!("DWH: Running perlasm {} -> {}", src.display(), dst.display());
         let mut args = vec![
-            c_root_dir.join(src).to_string_lossy().into_owned(),
+            // c_root_dir.join(src).to_string_lossy().into_owned(),
+            src.to_string_lossy().into_owned(),
             asm_target.perlasm_format.to_owned(),
         ];
         if asm_target.arch == X86 {
