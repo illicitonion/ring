@@ -769,6 +769,7 @@ fn perlasm(
     c_root_dir: &Path,
 ) {
     for (src, dst) in src_dst {
+        eprintln!("DWH: Running perlasm {} -> {}", src.display(), dst.display());
         let mut args = vec![
             c_root_dir.join(src).to_string_lossy().into_owned(),
             asm_target.perlasm_format.to_owned(),
@@ -785,6 +786,7 @@ fn perlasm(
             .replace('\\', "/");
         args.push(dst);
         run_command_with_args(perl_exe, &args);
+        eprintln!("DWH: Done running")
     }
 }
 

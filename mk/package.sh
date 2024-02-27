@@ -10,6 +10,7 @@ if [[ $(git status --porcelain | wc -c) -ne 0 ]]; then
 fi
 
 export RUST_BACKTRACE=all
+export CARGO_PROFILE_DEV_BUILD_OVERRIDE_DEBUG=true
 
 cargo clean --target-dir=target/pregenerate_asm
 RING_PREGENERATE_ASM=1 CC_AARCH64_PC_WINDOWS_MSVC=clang \
