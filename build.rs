@@ -26,6 +26,7 @@ use std::{
     path::{Path, PathBuf},
     process::Command,
 };
+use std::process::Stdio;
 
 const X86: &str = "x86";
 const X86_64: &str = "x86_64";
@@ -695,6 +696,7 @@ fn run_command_with_args(command_name: &Path, args: &[String]) {
 
 fn run_command(mut cmd: Command) {
     eprintln!("running {:?}", cmd);
+    cmd.stderr(Stdio::inherit());
     let status = cmd.status().unwrap_or_else(|e| {
         panic!("failed to execute [{:?}]: {}", cmd, e);
     });
