@@ -20,11 +20,12 @@
 #                                                                            #
 ##############################################################################
 
+print STDERR "DWH: \$0=$0\n"
+
 $flavour = shift;
 while (($output=shift) && ($output!~/\w[\w\-]*\.\w+$/)) {}
 
 $0 =~ m/(.*[\/\\])[^\/\\]+$/; $dir=$1;
-print("DWH: \$0=$0, \$dir=$dir\n");
 ( $xlate="${dir}arm-xlate.pl" and -f $xlate ) or
 ( $xlate="${dir}../../perlasm/arm-xlate.pl" and -f $xlate) or
 die "can't locate arm-xlate.pl";
