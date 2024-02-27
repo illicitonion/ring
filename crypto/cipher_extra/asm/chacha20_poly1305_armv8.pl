@@ -20,7 +20,7 @@
 #                                                                            #
 ##############################################################################
 
-print STDERR "DWH: \$0=$0\n"
+print STDERR "DWH: \$0=$0\n";
 
 $flavour = shift;
 while (($output=shift) && ($output!~/\w[\w\-]*\.\w+$/)) {}
